@@ -33,6 +33,7 @@ Mini_Notes/
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── .env.example
+│   ├── vercel.json
 │   └── package.json
 ├── server/
 │   ├── config/
@@ -46,6 +47,7 @@ Mini_Notes/
 │   ├── .env.example
 │   ├── package.json
 │   └── server.js
+├── render.yaml
 └── README.md
 ```
 
@@ -120,17 +122,18 @@ Open the shown Vite URL (usually `http://localhost:5173`).
 ## 11) Deployment Instructions
 ### Frontend on Vercel
 1. Import the `client` folder as a Vercel project.
-2. Add env var:
+2. This project already includes `client/vercel.json` for Vite build output configuration.
+3. Add env var:
    - `VITE_API_URL=https://your-render-backend-url`
-3. Deploy.
+4. Deploy.
 
 ### Backend on Render
-1. Create a new **Web Service** from the `server` folder.
+1. Use the included `render.yaml` (Blueprint deploy), or create a Web Service manually from `server/`.
 2. Build command: `npm install`
 3. Start command: `npm start`
-4. Add env vars:
+4. Add/set env vars:
    - `PORT=5000`
-   - `MONGO_URI=your_mongodb_connection_string`
+   - `MONGO_URI=your_mongodb_connection_string` (marked `sync: false` in `render.yaml`)
 5. Deploy.
 
 ### Database
